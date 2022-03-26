@@ -1,5 +1,4 @@
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -15,17 +14,54 @@ public class Main {
         curso2.setDescricao("descrição curso js");
         curso2.setCargaHoraria(4);
 
+
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("mentoria de java");
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
 
-        System.out.println(curso1);
+        /*System.out.println(curso1);
 
         System.out.println(curso2);
 
-        System.out.println(mentoria);
+        System.out.println(mentoria);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devFernanda = new Dev();
+        devFernanda.setNome("Fernanda");
+        devFernanda.inscreverBootcamp(bootcamp);
+
+        devFernanda.progredir();
+        devFernanda.progredir();
+
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Fernanda" + devFernanda.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos Fernanda" + devFernanda.getConteudosConcluidos());
+        System.out.println("XP:" + devFernanda.calcularTotalXp());
+
+        System.out.println("-------");
+
+        Dev devAlessandro = new Dev();
+        devAlessandro.setNome("Alessandro");
+        devAlessandro.inscreverBootcamp(bootcamp);
+
+        devAlessandro.progredir();
+        devAlessandro.progredir();
+        devAlessandro.progredir();
+
+
+        System.out.println("-");
+
+        System.out.println("Conteúdos Inscritos Alessandro" + devAlessandro.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos Alessandro" + devAlessandro.getConteudosConcluidos());
+        System.out.println("XP:" + devAlessandro.calcularTotalXp());
 
 
     }
